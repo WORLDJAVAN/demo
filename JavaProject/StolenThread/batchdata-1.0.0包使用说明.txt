@@ -1,0 +1,88 @@
+jar包 功能介绍： 
+  A.setTask(...)用于设置执行的实际任务及需要分组拦截的处理类  
+  B.设置启动参数setParams(...) 切分及运行线程的大小
+  C.startResult()运行有返回结果任务，startNoResult()返回没有结果任务 二者选其一使用
+  
+  参数默认值说明
+    taskCount = 1; // 任务欲切分块的数量
+	taskSize; // 任务被切分块的大小 taskList.size()/taskCount;
+	handleMode = false; // 执行模式 True:并发模式 False:保护模式
+	Boolean cutWay = false; // 文件切分方式 True:按块切分 False:按大小切分
+	poolSize = 10; // 设置需要运行的池子大小
+	taskList 需要执行任务列表
+	handleBuzClass 执行具体业务实现类
+	handleGroup 执行分组拦截实现类
+
+    /**
+	 * 设置运行处理类
+	 */
+	public void setTask(List<T> taskList,Class<? extends AHandleBuz> handleBuzClass,
+	           IHandleGroup handleGroup, Boolean handleMode)
+	
+	/**
+	 * 设置启动参数
+	 */
+	public void setParams(int taskCount, Boolean cutWay, int poolSize)
+	
+	/**
+	 * 启动有返回结果的任务
+	 */
+	public List<Object> startResult()
+	
+	/**
+	 * 启动无返回结果的任务
+	 */
+	public void startNoResult()
+	
+	使用案例Demo：
+	步骤一.实现业务扩展类的继承  AHandleBuz(为抽象类)进行实际业务地方：
+    public class DHandleBuz extends AHandleBuz {
+	@Override
+	 public Object handleBusiness(Object task) {	
+		String result = "<order>" + Thread.currentThread().getName() + ":" + task + "</order>";	
+		String result2 = "<name>" + Thread.currentThread().getName() + ":" + task + "</name>";		
+		return result+result2;
+	  }
+    }
+	步骤二.实现拦截类直接继承：IHandleGroup接口或重写 HandleGroupImp 实现类
+	public class DHandleGroup extends HandleGroupImp {
+	@Override
+	public List<Object> handleGroup(List<Object> rs_value) {
+		
+		StringBuffer temp= new StringBuffer("<Orders>");		
+		List<Object> listnew = new ArrayList<Object>();	
+		
+		for(Object obj:rs_value){ 
+		 temp.append(obj);
+		}
+		temp.append("</Orders>");
+		listnew.add(temp);		
+		return listnew;
+	  }
+    }
+	步骤三.业务调用实现(提供多种方式的方法，按实际应用设置)
+	public static void main(String[] args) {
+		List<String> buz_job = new ArrayList<String>(); //模拟业务数据对象
+		for (int i = 0; i < 40000; i++) {
+			buz_job.add("buz_data" + i);
+		}
+        //创建引用对象
+		TaskHandle<String> taskSteal = new TaskHandle<String>(); 	
+		
+		//设置任务事件
+		taskSteal.setTask(buz_job, DHandleBuz.class, new DHandleGroup(),false);
+		
+		//设置启动参数
+		taskSteal.setParams(3,5);	
+		
+		//启动获取结果
+		List<Object> result = taskSteal.startResult();
+		
+		//结果展示
+		System.out.println("==========结果============");		
+		for (int i = 0; i < result.size(); i++) {
+			System.out.println(result.get(i));
+		}
+	}
+	
+	

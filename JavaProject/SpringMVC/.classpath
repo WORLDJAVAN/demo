@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/long/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar" sourcepath="C:/Users/long/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17-sources.jar">
+		<attributes>
+			<attribute name="maven.groupId" value="log4j"/>
+			<attribute name="maven.artifactId" value="log4j"/>
+			<attribute name="maven.version" value="1.2.17"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="C:/Users/long/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" sourcepath="C:/Users/long/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1-sources.jar">
+		<attributes>
+			<attribute name="maven.groupId" value="dom4j"/>
+			<attribute name="maven.artifactId" value="dom4j"/>
+			<attribute name="maven.version" value="1.6.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="C:/Users/long/.m2/repository/commons-codec/commons-codec/1.8/commons-codec-1.8.jar" sourcepath="C:/Users/long/.m2/repository/commons-codec/commons-codec/1.8/commons-codec-1.8-sources.jar">
+		<attributes>
+			<attribute name="maven.groupId" value="commons-codec"/>
+			<attribute name="maven.artifactId" value="commons-codec"/>
+			<attribute name="maven.version" value="1.8"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/common-annotations.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/commons-pool.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/servlet-api-2.5.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/spring-aop-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/spring-asm-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/spring-beans-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/spring-context-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/spring-core-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/spring-expression-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/spring-jdbc-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/spring-orm-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/spring-oxm-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/spring-web-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/spring-webmvc-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Devel/Java Jars/Spring/spring mvc/spring-ws-1.5.6-all.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

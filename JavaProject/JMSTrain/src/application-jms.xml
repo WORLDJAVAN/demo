@@ -1,0 +1,54 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xsi:schemaLocation="http://www.springframework.org/schema/rabbit
+           http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="jmsConnectionFactory" class="org.springframework.jndi.JndiObjectFactoryBean">  
+        <property name="jndiName">  
+            <value>ydmb-message-ConnectionFactory</value>
+        </property>  
+        <property name="jndiTemplate">  
+            <ref bean="jmsJndiTemplate"></ref>  
+        </property>  
+    </bean>  
+    
+    <!-- define jms queue jndi -->  
+    <bean id="jmsDestination" class="org.springframework.jndi.JndiObjectFactoryBean">  
+        <property name="jndiName">  
+            <value>ydmb-message-Queue</value>  
+        </property>  
+        <property name="jndiTemplate">  
+            <ref bean="jmsJndiTemplate"></ref> 
+        </property>  
+    </bean>
+    
+    <!-- define jms queue url -->  
+    <bean id="jmsJndiTemplate" class="org.springframework.jndi.JndiTemplate">  
+        <property name="environment">  
+            <props>  
+                <prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>              
+                <prop key="java.naming.provider.url">t3://localhost:7001</prop>
+            </props>  
+        </property>  
+    </bean>
+    
+    <!-- JMS Queue Send Template  -->  
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">  
+        <property name="connectionFactory" ref="jmsConnectionFactory" />   
+        <property name="defaultDestination" ref="jmsDestination" />  	
+    </bean>
+    
+    <bean id="messageListener" class="com.yundaex.member.common.handler.MessageHandler"></bean>  
+      
+    <bean id="listenerContainer"  
+        class="org.springframework.jms.listener.DefaultMessageListenerContainer">  
+        <property name="connectionFactory" ref="jmsConnectionFactory" />  
+        <property name="destination" ref="jmsDestination" />  
+        <property name="messageListener" ref="messageListener" />
+        <property name="sessionTransacted" value="true"/>  
+        <property name="sessionAcknowledgeModeName" value="AUTO_ACKNOWLEDGE"/>  
+    </bean> 
+      
+</beans>  

@@ -1,0 +1,11 @@
+<wuxialist>
+	<txtbook>
+		<name>青春</name>
+		<author>李小露</author>
+	</txtbook>
+	<txtbook>
+		<name>童年</name>
+		<author>芳芳</author>
+		<test>gfgdf</test>
+	</txtbook>
+</wuxialist>
